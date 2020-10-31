@@ -1,0 +1,187 @@
+{
+	juste ya kho bach nkolek brk hadou les fonctions isyit nektebhom bel python mais khatini chwiya
+	donc c'es pour sa ani chra7t kbel manektebhom wach lazem dir 
+	donc nta siyihoum separement ida mchaw khedemhoum sinon 3awed ekteb 3la 7sab wach fhemt
+	peace - karim
+}
+
+test_letters(w1,w2) :
+	q1=list(w1);
+	q2=list(w2); //hadi la fonction a été cité a lafin du sujet sinon ana khatini python XD
+
+	// tverifi si les deux listes on le meme nombre d'element sinon return false; et la fonction s'arrete la
+
+	// hna 3endek un choix tu fait un while loop la condition étant une variable booleen
+	// li m3a lewel = vrai et terfed une lettre 'x' de la liste q1 par ex
+	// et tu la compare avec chaque element
+	// si tewsel la fin de la liste q2 et mazl malkitch un element 'x' fla liste 2 et ben condition =faux
+	// ou tkemel haka m3a ge3 les elements
+	// ne3ref chwiya python donc normalement haka
+	condition=true;
+	while (condtion) :
+		for i in q1 :
+			for j in q2 :
+				if(j==i) : condition = true
+				else condition = false
+
+	return (condition); // sincérement jcp ida yemchi mais banetli logiquement haka 
+					 // dsl XD mane3refch python sinon loukane b c loukane ani dertou ou b3etou
+
+
+
+count_anagrams(l,wordbook) :
+	** important********************************************************************************************
+	// hna f le debut chouf kifah tecriyiw les liste tewe3koum f python de n element (car n= longueur de la liste l) ou initialisi ge3 les elements te3ha a 0
+	// f lexemple 7a nssemiha "del" had la liste
+	********************************************************************************************************
+	// ici lazem teste3mel la fonction test_lettres
+	// surement ha jik 3efsa haka mais enn tt cas meme ghalta nta lmouhim tefhem l'idée
+	for mot in l :
+		in=del.index(mot);
+		for word in wordbook :
+			result=test_lettres(mot,word)
+			if result : del[in] = del[in] + 1
+
+	return(del);
+
+k_anagram(l,anagcount,k) :
+	// bon hnaya il est claire que la liste li treje3ha c pas la peine tinitialisiha
+	// ha teste3mel append bark
+	// donc tu crée un liste et chaque fois que telka un f la liste anagcount telka k troh t7ewess 3la le
+	// le mot li 3endou hadak le nombre de repet k fi la liste l
+	// comment ? c simple puisque les mots f la liste l et le nombre de leurs repetition dans anagcount 
+	// on le meme indexe donc tekder tjibou facilement
+	// un petit prototype
+
+	for repet in anagcount:
+		if (repet == k) : 
+			in=anagcount.index(repet);
+			elementtt=l[in];
+			listefinale.append(elementtt);
+
+	return(listefinale);
+
+word_anagrams(word,wordbook) :
+	// cette fonction tanik teste3mel fiha test_lettres li ktebnaha mel fouk
+	// donc had la fonction t7ewwes 3la les anagrames du mot word dans la liste
+	// wordbook et donc hna tanik pas besoin d'initialiser une liste il suffit
+	// juste d'utiliser append l'hadi la liste finale et point
+
+	for mot in wordbook :
+		resultat=test_lettres(word,mot);
+		if(resultat) : listefinale.append(mot);
+
+	return(listefinale);
+
+max_anagram(l,anagcount):
+	// hna tebe3 antik 
+	// n7ewsou 3la le_max de la liste anagcount
+	// ensuite nelkaw ge3 les elements de anagcount li ils sont egals a le_max et nelkaw l'index ta3houm
+	// et n'appendiwhoum fi la listefinale
+
+	le_max=max(anagcount)
+
+	for k in anagcount :
+		if k==le_max :
+			in=anagcount.index(k)
+			elem=l[in]
+			listefinale.append(elem)
+
+	return(listefinale)
+
+zero_anagram(l,anagcount):
+	// hadi tedi la liste 'l' et wine telka 0 f anag count t7ewwes 3la l'index te3 0 et tejbed le mot men
+	// la liste l ta3ek ou t7etou fi la listefinale (b1 sur t'appendih car pas besoin d'initialisation
+	// juste la declaration tekfi)
+
+	for k in anagcount:
+		if k==0 :
+			in=anagcount.index(k)
+			elem=l[in]
+			listefinale.append(elem)
+
+	return(listefinale)
+
+
+clean_word(word):
+	// hna if python 3endek hadik k = liste(l) li tekder tkessemli le mot en liste
+	// et je parcourt chaque element de la liste li nelkah dakhel la liste li le prof
+	// ta3koum difinatha c'est a dire 
+	// not_allowed=['!',
+					'.',
+					'?',
+					':',
+					',',
+					''',
+					'"',
+					'-',
+					'_',
+					'\',
+					'(',
+					')',
+					'[',
+					']',
+					'{',
+					'}',
+					'%',
+					'0',
+					'1',
+					'2',
+					'3',
+					'4',
+					'5',
+					'6',
+					'7',
+					'8',
+					'9',
+					'\t',
+					'\n',]
+	// hadek l'element wach ndirlou na7ih m la liste et a la fin ge3 ndir join l hadik la liste
+	// ou nreje3ha string
+
+	lis=liste(word)
+
+	for chara in word:
+		if chara in lis :
+			lis.remove(chara)
+
+	result=""
+	result=joindre_les_elements(lis) // had la fonction ana li zedtha dok nektebha l ta7t
+
+	return(result)  
+
+joindre_les_elements(l):
+	str1=""
+	for ele in l:
+		str1+=ele
+
+	return(ele)
+
+create_clean_sorted_nodupicates_list(l):
+	// hnaya fi had la fonction lazem tsuprimi les duplicates donc les mots li kaynine 2 fois
+	// en + chaque mot trej3ou clean donc teste3mel la fonction li dernaha men kbel
+	// bach tne7ilou ge3 les charactéres bizard li hadrte 3lihoum la prof
+	// et t3awed tsegem la liste en ordre alphabétique mel a 7ta l z
+
+	// on commence d'abord par enlever de tous les mots les charactéres bizzard
+	for ele in l:
+		in = l.index(ele)
+		result=clean_word(ele)
+		l[in]=result
+
+	// mor ma remplacina ge3 les elements b les elements te3houm sans les charachtéres bizzards hadouk
+	// nroho ne7iw les duplicates(les doublons)
+	// c'est la maniére la plus pythonique li kdert nelkaha
+	// lkitha sur ce site : https://careerkarma.com/blog/python-remove-duplicates-from-list/#:~:text=There%20are%20a%20couple%20of,you%20have%20into%20a%20set.
+
+	resultat = list(dict.fromkeys(l)) // le resultat qui na7ina les duplicates
+
+	//doka netriyiwhoum en ordre alphabitic
+
+	resultat.sort()
+
+	// f la photo li b3ethali mabanlich awch tretourni la fonction donc je vais supposer
+	// que tretourni le resultat final (aprés le tri etc)
+
+	return (resultat);
+
